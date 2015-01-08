@@ -1,0 +1,15 @@
+{
+
+	"name": "content-manager",
+	"version": "0.0.1",
+	"private": true,
+    "main" : "views/index.html",
+	"dependencies": {
+        "express": "~3.2.6",
+        "mysql" : "*",
+        "ejs": "~0.7.1",
+        "passport" : "*",
+        "passport-local" : "*",
+        "moment": "*"
+	}
+}

@@ -10,6 +10,11 @@
         "ejs": "~0.7.1",
         "passport" : "*",
         "passport-local" : "*",
-        "moment": "*"
+        "requirejs" : "*",
+        "moment": "*",
+        "grunt": "*",
+        "grunt-npm-install" : "*",
+        "grunt-bower-installer" : "*",
+        "grunt-contrib-requirejs" : "*"
 	}
 }

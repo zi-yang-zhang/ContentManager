@@ -3,7 +3,7 @@
 */
 var express  = require('express');
 var http = require('http');
-var path = path = require('path');
+var path = require('path');
 var mysql = require('mysql');
 var passport = require('passport');
 var vhost = 'nodejsapp.local'

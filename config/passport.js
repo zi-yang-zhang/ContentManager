@@ -14,12 +14,12 @@ module.exports = function(passport, db) {
  
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
-		done(null, user.id);
+		done(null, user.iduser);
     });
  
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-		db.query("select * from users where id = "+id,function(err,rows){	
+		db.query("select * from users where iduser = "+id,function(err,rows){
 			done(err, rows[0]);
 		});
     });
@@ -76,7 +76,6 @@ module.exports = function(passport, db) {
  
     passport.use('local-login', new LocalStrategy(
     function(username, password, done) { // callback with username and password from our form
- 
          db.query("SELECT * FROM `users` WHERE `username` = '" + username + "'",function(err,rows){
 			if (err)
                 return done(err);
@@ -87,7 +86,7 @@ module.exports = function(passport, db) {
 			// if the user is found but the password is wrong
             if (!( rows[0].password == password))
                 return done(null, false, { message: 'Incorrect password.' });
-			
+			console.log("user: "+ rows+ "trying to login");
             // all is well, return successful user
             return done(null, rows[0]);			
 		

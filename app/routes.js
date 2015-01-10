@@ -1,5 +1,5 @@
-module.exports = function(app) {
-
+module.exports = function(app,passport,db) {
+	var api = require('./api.js')(db);
 	app.get('/', function(req, res){
         res.render('index');
     });
@@ -13,5 +13,7 @@ module.exports = function(app) {
         res.render('dashboard');
     });
 
-
+	app.post('/api/login', passport.authenticate('local-login', {
+        session: true
+    }),api.login);
 }

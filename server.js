@@ -27,10 +27,12 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(express.json());
     app.use(express.urlencoded());
+    app.use(passport.initialize());
+    app.use(passport.session());
     app.use(app.router); //init routing
  });
 
-require('./app/routes.js')(app); // load our routes and pass in our app
+require('./app/routes.js')(app,passport,db); // load our routes and pass in our app
 
  // development only
 if (app.get('env') === 'development') {
